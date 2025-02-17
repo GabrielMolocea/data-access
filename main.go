@@ -50,7 +50,7 @@ func albumByID(id int64) (Album, error) {
 		if err == sql.ErrNoRows {
 			return alb, fmt.Errorf("albumByID %d: no such album", id)
 		}
-		return alb, fmt.Errorf("albumByID %d: %v", id, err)	
+		return alb, fmt.Errorf("albumByID %d: %v", id, err)
 	}
 	return alb, nil
 }
@@ -93,21 +93,21 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("Albums found: %v\n", albums)
+	fmt.Printf("Albums found: %v\n", albums)
 
 	alb, err := albumByID(2)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("Album found: %v\n", alb)
+	fmt.Printf("Album found: %v\n", alb)
 
 	albID, err := addAlbum(Album{
-		Title: "The Modern Sound of Betty Carter",
+		Title:  "The Modern Sound of Betty Carter",
 		Artist: "Betty Carter",
-		Price: 49.99,
+		Price:  49.99,
 	})
 	if err != nil {
-		log.Fatal(err)		
+		log.Fatal(err)
 	}
-	fmt.Println("ID of added album: %v \n", albID)
+	fmt.Printf("ID of added album: %v \n", albID)
 }
